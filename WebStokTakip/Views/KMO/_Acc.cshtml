@@ -1,0 +1,49 @@
+﻿@using WebStokTakip.Models.Identity
+@model Login
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <!--/Style-cssACC -->
+    <link href="~/scripts/css/_acc/style.css" rel="stylesheet" />
+    <!--//Style-cssACC -->
+    <title>Giriş Yap</title>
+</head>
+
+<body>
+    <!-- form section start -->
+    <section class="w3l-hotair-form">
+        <h1>STOK-DEPO TAKİP</h1>
+        <div class="container">
+            <div class="workinghny-form-grid">
+                <div class="main-hotair">
+                    <div class="content-wthree">
+                        <p>Hesabına</p>
+                        <h2>Giriş Yap</h2>
+                        @using (Html.BeginForm("_acc", "KMO", FormMethod.Post))
+                        {
+                            @Html.AntiForgeryToken()
+
+                            @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "text", @placeholder = "Kullanıcı Adı", @required = "" } })
+                            @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
+                            @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "password", @type = "Password", @placeholder = "Şifre", @required = "" } })
+                            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                            <button class="btn" type="submit">Giriş Yap</button>
+                        }
+                    </div>
+                    <div class="w3l_form align-self"><div class="left_grid_info"></div></div>
+                </div>
+            </div>
+        </div>
+        <!-- copyright-->
+        <div class="copyright text-center">
+            <p class="copy-footer-29">
+                &copy; @DateTime.Now.Year <strong><a href="https://www.kmokaucuk.com" style="color:red;">KMO KAUÇUK</a></strong> TÜM HAKLARI SAKLIDIR
+            </p>
+        </div>
+        <!-- //copyright-->
+    </section>
+    <!-- //form section start -->
+</body>
+
+</html>

@@ -1,0 +1,119 @@
+﻿
+@{
+    ViewBag.Title = "Ana Sayfa";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="card-deck">
+        <div class="card text-center">
+            <a href="/Warehouse/Index"><img class="card-img-top" src="~/scripts/images/Depo.jpg" height="250" alt="Resim Bulunamadı"></a>
+            <div class="card-body">
+                <h5 class="card-title">
+                    <a href="/Warehouse/Index"><i class="fa-solid fa-warehouse"></i> Depolarım</a>
+                </h5>
+                <p class="card-text">
+                    Toplam Depo Sayısı
+                </p>
+            </div>
+            <div class="card-footer">
+                <small class="text-muted">
+                    <span class="text-danger" style="font-size:20px;">
+                        <strong>
+                            @if (ViewBag.WarehouseCount > 0)
+                            {
+                                <span>(@ViewBag.WarehouseCount)</span>
+                            }
+                            else
+                            {
+                                <span>(Depo Yok)</span>
+                            }
+                        </strong>
+                    </span>
+                </small>
+            </div>
+        </div>
+        <div class="card text-center">
+            <a href="/Shelf/Index"><img class="card-img-top" src="~/scripts/images/Raf.jpg" height="250" alt="Resim Bulunamadı"></a>
+            <div class="card-body">
+                <h5 class="card-title">
+                    <a href="/Shelf/Index"><i class="fa-solid fa-boxes-stacked"></i> Raflarım</a>
+                </h5>
+                <p class="card-text">
+                    Toplam Raf Sayısı
+                </p>
+            </div>
+            <div class="card-footer">
+                <small class="text-muted">
+                    <span class="text-danger" style="font-size:20px;">
+                        <strong>
+                            @if (ViewBag.ShelfCount > 0)
+                            {
+                                <span>(@ViewBag.ShelfCount)</span>
+                            }
+                            else
+                            {
+                                <span>(Raf Yok)</span>
+                            }
+                        </strong>
+                    </span>
+                </small>
+            </div>
+        </div>
+
+        <div class="card text-center">
+            <a href="/Category/Index"><img class="card-img-top" src="~/scripts/images/Kategori.jpg" height="250" alt="Resim Bulunamadı"></a>
+            <div class="card-body">
+                <h5 class="card-title">
+                    <a href="/Category/Index"><i class="fa-solid fa-book-open"></i> Kategorilerim</a>
+                </h5>
+                <p class="card-text">
+                    Toplam Kategori Sayısı
+                </p>
+            </div>
+            <div class="card-footer">
+                <small class="text-muted">
+                    <span class="text-danger" style="font-size:20px;">
+                        <strong>
+                            @if (ViewBag.CategoryCount > 0)
+                            {
+                                <span>(@ViewBag.CategoryCount)</span>
+                            }
+                            else
+                            {
+                                <span>(Kategori Yok)</span>
+                            }
+                        </strong>
+                    </span>
+                </small>
+            </div>
+        </div>
+        <div class="card text-center">
+            <a href="/Product/Index"><img class="card-img-top" src="~/scripts/images/Ürün.jpg" height="250" alt="Resim Bulunamadı"></a>
+            <div class="card-body">
+                <h5 class="card-title">
+                    <a href="/Product/Index"><i class="fa-solid fa-book"></i> Ürünlerim</a>
+                </h5>
+                <p class="card-text">
+                    Toplam Ürüm Sayısı
+                </p>
+            </div>
+            <div class="card-footer">
+                <small class="text-muted">
+                    <span class="text-danger" style="font-size:20px;">
+                        <strong>
+                            @if (ViewBag.ProductCount > 0)
+                            {
+                                <span>(@ViewBag.ProductCount)</span>
+                            }
+                            else
+                            {
+                                <span>(Ürün Yok)</span>
+                            }
+                        </strong>
+                    </span>
+                </small>
+            </div>
+        </div>
+    </div>
+</div>

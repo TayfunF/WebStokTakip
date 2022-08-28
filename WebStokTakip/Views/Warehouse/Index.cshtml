@@ -1,0 +1,63 @@
+﻿@model IEnumerable<WebStokTakip.Models.Warehouse>
+
+@{
+    ViewBag.Title = "Depo Listesi";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+
+    @using (Html.BeginForm())
+    {
+        <div class="form-group">
+            <div style="float:left;">
+                <a href="/Warehouse/Create" class="btn btn-primary"><i class="fa-regular fa-square-plus"></i> Depo Ekle</a>
+            </div>
+            <div style="float:right;">
+                <button type="submit" class="btn btn-info"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+            <div style="width:25%; float:right;">
+                @Html.TextBox("searched", null, new { @class = "form-control", @placeholder = "Aranacak kelimeyi giriniz" })
+            </div>
+        </div>
+    }
+
+    <table class="table table-bordered table-striped" style="margin-top:75px;">
+        <tr>
+            <th>Ad</th>
+            <th>Kapasite</th>
+            <th>Kullanım Durumu</th>
+            <th>İşlemler</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Capacity)
+                </td>
+                <td>
+                    @if (item.IsActive)
+                    {
+                        <span class="badge badge-success"><i class="fa-solid fa-check"></i> Evet</span>
+                    }
+                    else
+                    {
+                        <span class="badge badge-danger"><i class="fa-solid fa-xmark"></i> Hayır</span>
+                    }
+                </td>
+                <td>
+                    @Html.ActionLink("Düzenle", "Edit", new { id = item.Id }, new { @class = "btn btn-warning btn-sm" })
+                    @if (Context.User.IsInRole("admin"))
+                    {
+                        @Html.ActionLink("Sil", "Delete", new { id = item.Id }, new { @class = "btn btn-danger btn-sm" })
+                    }
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
